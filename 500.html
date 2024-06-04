@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" class="scroll-smooth focus:scroll-auto">
+<html lang="pt-BR" class="scroll-smooth focus:scroll-auto dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -1175,8 +1175,8 @@
   const isDarkMode = localStorage.getItem('darkMode') === 'true';
 
 // Se estiver no modo escuro, adicionar a classe 'dark' ao html
-if (isDarkMode) {
-    html.classList.add('dark');
+if (!isDarkMode) {
+    html.classList.remove('dark');
 }
 
 darkBtn.addEventListener('click', function () {
