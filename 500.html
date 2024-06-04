@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" class="scroll-smooth focus:scroll-auto">
+<html lang="pt-BR" class="scroll-smooth focus:scroll-auto dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -1171,11 +1171,21 @@
   document.addEventListener('DOMContentLoaded', function () {
       const darkBtn = document.getElementById('darkBtn');
       const html = document.querySelector('html');
+  // Verificar se o localStorage tem a chave 'darkMode'
+  const isDarkMode = localStorage.getItem('darkMode') === 'true';
 
-      darkBtn.addEventListener('click', function () {
-          // Adiciona ou remove a classe 'dark' no html
-          html.classList.toggle('dark');
-      });
+// Se estiver no modo escuro, adicionar a classe 'dark' ao html
+if (isDarkMode) {
+    html.classList.add('dark');
+}
+
+darkBtn.addEventListener('click', function () {
+    // Adiciona ou remove a classe 'dark' no html
+    html.classList.toggle('dark');
+
+    // Atualiza o estado do modo escuro no localStorage
+    localStorage.setItem('darkMode', html.classList.contains('dark'));
+});
   });
 </script>
 </html>
